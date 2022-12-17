@@ -143,42 +143,42 @@ def calculate_euclidean_distance(features1, features2):
     return similarity_score
 
 
-def calculate_similarity(features1, features2, score_type='cosine'):
-    target_len = get_target_vector_length(features1, features2)
-    features1 = pad_or_truncate(features1, target_len)
-    features2 = pad_or_truncate(features2, target_len)
+# def calculate_similarity(features1, features2, score_type='cosine'):
+#     target_len = get_target_vector_length(features1, features2)
+#     features1 = pad_or_truncate(features1, target_len)
+#     features2 = pad_or_truncate(features2, target_len)
     
-    similarity_score = 0.0
+#     similarity_score = 0.0
 
-    if score_type == 'euclidean':
-        # Calculate the Euclidean distance between the feature vectors
-        distance = euclidean(features1, features2)
-        print(features1,'\n',features2)
+#     if score_type == 'euclidean':
+#         # Calculate the Euclidean distance between the feature vectors
+#         distance = euclidean(features1, features2)
+#         print(features1,'\n',features2)
 
-        # Normalize the distance by dividing it by the maximum possible distance
-        minv = min_max_distance(features1, features2, target_len, distance_type='min')
-        maxv = min_max_distance(features1, features2, target_len, distance_type='max')
-        max_distance = euclidean(minv,maxv)
+#         # Normalize the distance by dividing it by the maximum possible distance
+#         minv = min_max_distance(features1, features2, target_len, distance_type='min')
+#         maxv = min_max_distance(features1, features2, target_len, distance_type='max')
+#         max_distance = euclidean(minv,maxv)
 
-        print('Distance between two images:',distance)
-        print('Image vector max distance:', max_distance)
+#         print('Distance between two images:',distance)
+#         print('Image vector max distance:', max_distance)
 
-        similarity_score = ((max_distance - distance) / max_distance) * 100
-        print('Score type =>', score_type)
+#         similarity_score = ((max_distance - distance) / max_distance) * 100
+#         print('Score type =>', score_type)
 
-    elif score_type == 'cosine':
-        target_len = get_target_vector_length(features1, features2)
-        features1 = pad_or_truncate(features1, target_len)
-        features2 = pad_or_truncate(features2, target_len)
-        # Calculate the dot product between the feature vectors
-        dot_product = np.dot(features1, features2)
+#     elif score_type == 'cosine':
+#         target_len = get_target_vector_length(features1, features2)
+#         features1 = pad_or_truncate(features1, target_len)
+#         features2 = pad_or_truncate(features2, target_len)
+#         # Calculate the dot product between the feature vectors
+#         dot_product = np.dot(features1, features2)
 
-        # Calculate the magnitudes of the feature vectors
-        magnitudes = np.linalg.norm(features1) * np.linalg.norm(features2)
+#         # Calculate the magnitudes of the feature vectors
+#         magnitudes = np.linalg.norm(features1) * np.linalg.norm(features2)
 
-        # Calculate the cosine similarity score
-        similarity_score = dot_product / magnitudes
-    return similarity_score
+#         # Calculate the cosine similarity score
+#         similarity_score = dot_product / magnitudes
+#     return similarity_score
 
 
 def compare_img_and_calc_similarity(images, feature_extraction='haarcascade', score_type='cosine'):
