@@ -1,7 +1,10 @@
 # Face Image Similarity OpenCV
 A simple project on measuring two face images similarities using Cosine and Euclidean distance
 
-This project involves building a facial recognition model that compares two images and returns a similarity score. The model follows the following steps:
+This project involves building a facial recognition model that compares two images and returns a similarity score. 
+<br>
+<img src='data/img/diagram-flow.png' height=100px>
+The model follows the following steps:
 
 ## Preprocessing
 
