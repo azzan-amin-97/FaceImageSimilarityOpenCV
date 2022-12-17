@@ -2,7 +2,7 @@
 A simple project on measuring two face images similarities using Cosine and Euclidean distance
 
 This project involves building a facial recognition model that compares two images and returns a similarity score. 
-<br>
+<br><br>
 <img src='data/img/diagram-flow.png'>
 <br>
 The model follows the following steps:
