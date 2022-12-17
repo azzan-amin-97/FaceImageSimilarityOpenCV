@@ -1,0 +1,6 @@
+opencv-contrib-python
+scipy
+wheel
+torch
+torchvision
+pylzma
